@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 from pathlib import Path
 
@@ -17,14 +17,14 @@ def main(log):
             except StopIteration:
                 break
     else:
-        print(f"Can't file {log} to parse...")
+        print(f"Invalid file path: {log}")
 
 
 def parse(log):
     report = NmapParser.parse_fromfile(sys.argv[1])
 
     yield from [
-        f"{host.ipv4},{service.port}"
+        f"{host.hostnames[0]},{service.port}"
         for host in report.hosts
         for service in host.services
         if service.state != FILTERED
