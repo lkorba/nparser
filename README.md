@@ -1,6 +1,9 @@
 # nparser
 Parser for nmap XML report - displays CSV list od host,port
 
+### Requiremetnts:
+python-libnmap 
+
 ### Sample usage:
 ```
 user@dev:~$ parser.py ./nmapresult.xml 
