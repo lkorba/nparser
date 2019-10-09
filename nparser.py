@@ -11,7 +11,7 @@ hostport = []
 for host in nmap_report.hosts:
     for service in host.services:
         if service.state != "open|filtered":
-            hostport.append(str(host.ipv4) + "," + str(service.port))
+            hostport.append(str(host.hostnames[0]) + "," + str(service.port))
 
 for item in hostport:
     print(item)
